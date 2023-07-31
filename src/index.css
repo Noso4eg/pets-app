@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.container {
+  margin-top: 2%;
+}
+.pet {
+  padding: 1% !important;
+  cursor: pointer;
+}
+.pet .buttons {
+  pointer-events: none;
+  opacity: 0;
+}
+.pet .info {
+  margin-left: 50px;
+  font-size: smaller;
+}
+.pet .info span {
+  opacity: 0;
+}
+.pet .paw {
+  float: left;
+}
+.pet .paw::before {
+  opacity: 0.35;
+  font-size: xx-large;
+  display: block;
+  margin-top: 10px;
+}
+.user {
+  color: #008bff;
+}
+.pet.active {
+  background: #f5f5f5;
+}
+.pet.active .info span {
+  opacity: 1;
+}
+.pet.active .buttons {
+  pointer-events: all;
+  opacity: 1;
+}
+.pet.active .paw::before {
+  opacity: 1;
+}
