@@ -1,46 +1,30 @@
 import { Container, List } from "semantic-ui-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./index.css";
 import { Pet } from "./components/Pet";
 function Pets() {
-  const [pets, setPets] = useState([
-    {
-      otype: "Pet",
-      oid: "Pet1",
-      birthday: 1672520400,
-      home: true,
-      name: "Chase",
-      owner: "User666",
-    },
-    {
-      otype: "Pet",
-      oid: "Pet2",
-      birthday: 1677099600,
-      home: true,
-      name: "Marshall",
-      owner: "User666",
-    },
-    {
-      otype: "Pet",
-      oid: "Pet3",
-      birthday: 1678222800,
-      home: false,
-      name: "Wally",
-      owner: "User13",
-    },
-  ]);
-  const [owners, setOwners] = useState([
-    {
-      name: "Cap'n Turbot",
-      oid: "User13",
-      otype: "User",
-    },
-    {
-      name: "Rider",
-      oid: "User666",
-      otype: "User",
-    },
-  ]);
+  const backendURL = 'http://localhost:5000/'
+  const [pets, setPets] = useState([])
+  const [owners, setOwners] = useState([])
+
+
+  //Get pets and pet owners
+  const getPets = () => {
+    fetch(backendURL + 'pets')
+    .then((response) => response.json())
+    .then((data => setPets(data)))
+  }
+  const getOwners = () => {
+    fetch(backendURL + 'owners')
+    .then((response) => response.json())
+    .then((data => setOwners(data)))
+  }
+
+  useEffect(() => {
+    getOwners()
+    getPets()
+    
+  }, [])
 
   return (
     <div className="Pets">

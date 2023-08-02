@@ -15,7 +15,7 @@ export const PetModal = ({ pet, owner }) => {
         <Form>
           <Form.Field required>
             <label>Кличка</label>
-            <input placeholder="Мотя" defaultValue={pet.name} />
+            <input placeholder="Кличка" defaultValue={pet.name} />
           </Form.Field>
           <Form.Field>
             <Checkbox label="Домашнее животное" defaultChecked={pet.home} />
@@ -23,13 +23,13 @@ export const PetModal = ({ pet, owner }) => {
           <Form.Field>
             <label>Дата рождения</label>
             <input
-              placeholder="дд.мм.гггг"
+              placeholder="Дата рождения"
               defaultValue={dateFormat(pet.birthday)}
             />
           </Form.Field>
           <Form.Field>
             <label>Хозяин</label>
-            <input placeholder="Василий" defaultValue={owner.name} />
+            <input placeholder="Хозяин" defaultValue={owner.name} />
           </Form.Field>
         </Form>
       </Modal.Content>
